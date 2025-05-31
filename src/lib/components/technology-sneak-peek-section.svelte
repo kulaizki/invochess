@@ -8,14 +8,14 @@
     {
       name: 'Stockfish 16',
       description: 'The most powerful open-source chess engine, providing deep tactical and positional analysis.',
-      color: 'text-sky-400',
-      bgColor: 'bg-sky-400'
+      color: 'text-yellow-400',
+      bgColor: 'bg-yellow-400'
     },
     {
       name: 'Google Gemini',
       description: 'Advanced AI for natural language explanations, making complex chess concepts easy to grasp.',
-      color: 'text-emerald-400',
-      bgColor: 'bg-emerald-400'
+      color: 'text-sky-400',
+      bgColor: 'bg-sky-400'
     }
   ];
 </script>
@@ -35,7 +35,7 @@
     <div class="text-center mb-12 md:mb-16">
       <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight">Technology Sneak Peek</h2>
       <p class="mt-3 md:mt-4 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-        Powered by cutting-edge AI for unparalleled chess insights.
+        Powered by cutting-edge technology for unparalleled chess insights.
       </p>
     </div>
 
