@@ -52,7 +52,7 @@
       </p>
       <div class="flex space-x-4">
         <a
-          href="https://github.com/kulaizki/nexleague"
+          href="https://github.com/kulaizki/invochess"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
