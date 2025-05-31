@@ -8,7 +8,7 @@
     </p>
     
     <div class="mt-8 mb-12">
-      <a href="#signup" 
+      <a href="/signup" 
          class="group relative inline-flex items-center justify-center gap-2.5 px-8 py-3 text-lg font-semibold text-white bg-sky-500 rounded-lg shadow-md transition-all duration-300 border-2 border-transparent hover:bg-sky-600 hover:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-105"
          title="Start your chess analysis journey with Invochess">
         Start Analyzing
