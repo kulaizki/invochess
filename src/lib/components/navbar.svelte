@@ -1,6 +1,6 @@
-<nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900 text-white p-4 shadow-md">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-sky-600 text-white p-4 shadow-md">
   <div class="container mx-auto flex justify-between items-center">
-    <a href="/" class="text-2xl font-bold text-sky-400">
+    <a href="/" class="text-2xl font-bold ">
       Invochess
     </a>
     <div>
