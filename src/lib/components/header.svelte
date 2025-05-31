@@ -1,4 +1,4 @@
-<nav class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-sky-600 to-sky-800 text-white p-4 shadow-md">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-sky-600 to-sky-800 text-white p-4 shadow-md border-b-2 border-sky-400">
   <div class="container mx-auto flex justify-between items-center">
     <a href="/" class="text-2xl font-bold ">
       Invochess
