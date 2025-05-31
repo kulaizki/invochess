@@ -1,38 +1,78 @@
-# sv
+# Invochess
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Invochess is an AI-powered web platform to help chess players improve their game. It uses Stockfish and Gemini for insightful analysis and personalized learning.
 
-## Creating a project
+**The name "Invochess" blends "invoke" and "chess," symbolizing powerfully invoking chess understanding and improvement.**
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Project Status
 
-```bash
-# create a new project in the current directory
-npx sv create
+**⚠️ This project is currently under active development.** The web application is not yet feature-complete. We appreciate your understanding as we work towards the full release.
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Tech Stack
 
-## Developing
+*   SvelteKit
+*   Tailwind CSS
+*   Supabase (PostgreSQL, Drizzle ORM, Auth)
+*   Stockfish (via Edge Functions)
+*   Gemini API (via Edge Functions)
+*   Vercel (planned for deployment)
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Key Features (Planned/In Development)
 
-```bash
-npm run dev
+*   In-depth Game Analysis (PGN upload/manual input)
+*   AI-Generated Explanations for complex positions
+*   Key Moment Identification
+*   Personalized Feedback & Common Mistake Analysis
+*   Interactive Learning Modules
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Getting Started (Development)
 
-## Building
+This project was scaffolded using the standard SvelteKit CLI.
 
-To create a production version of your app:
+1.  **Clone the repository (if you haven't already):**
+    ```bash
+    # (Instructions for cloning will be added once the repository is public)
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd invochess
+    ```
+3.  **Install dependencies:**
+    Make sure you have Node.js and npm (or pnpm/yarn) installed.
+    ```bash
+    npm install
+    # or
+    # pnpm install
+    # or
+    # yarn
+    ```
+4.  **Set up Environment Variables:**
+    Create a `.env` file in the root (see `.env.example` if available - to be created) for Supabase credentials and API keys.
+
+5.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    Or to open in a browser automatically:
+    ```bash
+    npm run dev -- --open
+    ```
+    App available at `http://localhost:5173`.
+
+## Building for Production
+
+To create a production version of the app:
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+You can preview the production build locally with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Deployment
+
+Deployment is planned for Vercel using the SvelteKit Vercel adapter.
+
+## Contributing
+
+(Contribution guidelines will be added once the project is more mature.)
