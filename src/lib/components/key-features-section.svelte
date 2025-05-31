@@ -48,7 +48,11 @@
     </div>
     <div class="grid md:grid-cols-3 gap-8 md:gap-10 items-stretch">
       {#each features as feature}
-        <div class="items-center text-center p-6 md:p-8 bg-gray-800 rounded-lg shadow-xl hover:shadow-sky-500/20 transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col">
+        <div class="items-center text-center p-6 md:p-8 bg-gray-800 rounded-lg shadow-xl 
+                    border-2 border-transparent 
+                    hover:shadow-sky-500/10 hover:border-sky-600 hover:-translate-y-1 
+                    transition-all duration-300 ease-in-out 
+                    flex flex-col">
           {@html feature.icon}
           <h3 class="text-2xl md:text-3xl font-semibold text-white mb-3">{feature.title}</h3>
           <p class="text-md text-gray-300">{feature.description}</p>

@@ -9,13 +9,15 @@
       name: 'Stockfish 16',
       description: 'The most powerful open-source chess engine, providing deep tactical and positional analysis.',
       color: 'text-yellow-400',
-      bgColor: 'bg-yellow-400'
+      bgColor: 'bg-yellow-400',
+      hoverBorderColor: 'hover:border-yellow-400'
     },
     {
       name: 'Google Gemini',
       description: 'Advanced AI for natural language explanations, making complex chess concepts easy to grasp.',
       color: 'text-sky-400',
-      bgColor: 'bg-sky-400'
+      bgColor: 'bg-sky-400',
+      hoverBorderColor: 'hover:border-sky-400'
     }
   ];
 </script>
@@ -42,7 +44,15 @@
     <div class="max-w-2xl mx-auto">
       <ul class="space-y-6 md:space-y-8">
         {#each technologies as tech}
-          <li class="flex items-start space-x-4 bg-gray-800 p-6 rounded-xl shadow-lg ring-1 ring-gray-700">
+          <li 
+            class="flex items-start space-x-4 bg-gray-800 p-6 rounded-xl shadow-lg 
+                       ring-1 ring-gray-700 
+                       border-2 border-transparent 
+                       hover:shadow-md hover:-translate-y-1 
+                       transition-all duration-300 ease-in-out"
+            class:hover:border-yellow-400={tech.hoverBorderColor === 'hover:border-yellow-400'}
+            class:hover:border-sky-400={tech.hoverBorderColor === 'hover:border-sky-400'}
+          >
             <div class="flex-shrink-0">
               <span class={`inline-block w-3 h-3 rounded-full ${tech.bgColor} mt-1.5`}></span>
             </div>
