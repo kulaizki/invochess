@@ -10,4 +10,5 @@
 		<slot />
 	</main>
 	<Header/>
+	<Footer/>
 </div>
