@@ -16,27 +16,19 @@
 <HowItWorksSection />
 <TechnologySneakPeekSection />
 
-<section id="signup" class="py-16 md:py-24">
+<section id="final-cta" class="py-16 md:py-24">
   <div class="container mx-auto px-4 text-center">
     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Ready to Transform Your Chess Game?</h2>
-    <p class="text-lg md:text-xl text-sky-400 mb-10 md:mb-12 max-w-xl mx-auto">Sign up now to access powerful analysis tools and personalized AI-driven learning insights.</p>
-    <div class="w-full max-w-md mx-auto bg-gray-800 p-8 rounded-lg shadow-xl">
-      <form class="space-y-5">
-        <div>
-          <label for="email-signup" class="sr-only">Email address</label>
-          <input 
-            type="email" 
-            name="email-signup" 
-            id="email-signup" 
-            class="w-full px-4 py-3 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-sky-500 focus:outline-none shadow-sm text-base border border-gray-600 focus:border-sky-500"
-            placeholder="Enter your email to get started">
-        </div>
-        <button 
-          type="submit" 
-          class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-6 rounded-md transition duration-150 ease-in-out shadow-lg transform hover:scale-105 text-lg">
-          Create Account & Analyze
-        </button>
-      </form>
+    <p class="text-lg md:text-xl text-sky-400 mb-10 md:mb-12 max-w-xl mx-auto">Join Invochess today to access powerful analysis tools and personalized AI-driven learning insights. Start winning more games!</p>
+    <div class="mt-8">
+      <a href="/signup"
+         class="group relative inline-flex items-center justify-center gap-2.5 px-10 py-4 text-xl font-semibold text-gray-900 bg-sky-500 rounded-lg shadow-xl transition-all duration-300 border-2 border-transparent hover:bg-sky-600 hover:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-105"
+         title="Sign up for Invochess">
+        Get Started Now
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1.5">
+          <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>
