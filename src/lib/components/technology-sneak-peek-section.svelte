@@ -1,15 +1,58 @@
-<section class="py-12 md:py-16">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8 md:mb-10 text-white">Powered by <span class="text-sky-400">Leading Technology</span></h2>
-    <div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-8">
-      <div class="flex items-center space-x-3 bg-gray-800 px-6 py-4 md:px-8 md:py-5 rounded-lg shadow-lg">
-        <div class="w-3 h-3 bg-sky-500 rounded-full"></div>
-        <span class="font-semibold text-xl md:text-2xl text-sky-300">Stockfish</span>
-      </div>
-      <div class="flex items-center space-x-3 bg-gray-800 px-6 py-4 md:px-8 md:py-5 rounded-lg shadow-lg">
-        <div class="w-3 h-3 bg-sky-500 rounded-full"></div>
-        <span class="font-semibold text-xl md:text-2xl text-sky-300">Google Gemini</span>
-      </div>
+<script lang="ts">
+  import { inview } from 'svelte-inview';
+
+  let isInView = false;
+  let hasAnimated = false;
+
+  const technologies = [
+    {
+      name: 'Stockfish 16',
+      description: 'The most powerful open-source chess engine, providing deep tactical and positional analysis.',
+      color: 'text-sky-400',
+      bgColor: 'bg-sky-400'
+    },
+    {
+      name: 'Google Gemini',
+      description: 'Advanced AI for natural language explanations, making complex chess concepts easy to grasp.',
+      color: 'text-emerald-400',
+      bgColor: 'bg-emerald-400'
+    }
+  ];
+</script>
+
+<section 
+  id="tech-sneak-peek" 
+  class="py-12 md:py-20"
+  use:inview={{ threshold: 0.1, unobserveOnEnter: true }}
+  on:inview_change={(event) => {
+    if (event.detail.inView && !hasAnimated) {
+      isInView = true;
+      hasAnimated = true;
+    }
+  }}
+>
+  <div class="container mx-auto px-4 transition-all duration-1000 transform {isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight">Technology Sneak Peek</h2>
+      <p class="mt-3 md:mt-4 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+        Powered by cutting-edge AI for unparalleled chess insights.
+      </p>
+    </div>
+
+    <div class="max-w-2xl mx-auto">
+      <ul class="space-y-6 md:space-y-8">
+        {#each technologies as tech}
+          <li class="flex items-start space-x-4 bg-gray-800 p-6 rounded-xl shadow-lg ring-1 ring-gray-700">
+            <div class="flex-shrink-0">
+              <span class={`inline-block w-3 h-3 rounded-full ${tech.bgColor} mt-1.5`}></span>
+            </div>
+            <div>
+              <h3 class={`text-xl md:text-2xl font-semibold ${tech.color} mb-1.5`}>{tech.name}</h3>
+              <p class="text-gray-300 leading-relaxed text-sm md:text-base">{tech.description}</p>
+            </div>
+          </li>
+        {/each}
+      </ul>
     </div>
   </div>
 </section> 

@@ -4,6 +4,10 @@
   import KeyFeaturesSection from "$lib/components/key-features-section.svelte";
   import HowItWorksSection from "$lib/components/how-it-works-section.svelte";
   import TechnologySneakPeekSection from "$lib/components/technology-sneak-peek-section.svelte";
+  import { inview } from 'svelte-inview';
+
+  let finalCtaInView = false;
+  let finalCtaHasAnimated = false;
 </script>
 
 <HeroSection />
@@ -16,8 +20,18 @@
 <HowItWorksSection />
 <TechnologySneakPeekSection />
 
-<section id="final-cta" class="py-16 md:py-24">
-  <div class="container mx-auto px-4 text-center">
+<section 
+  id="final-cta" 
+  class="py-16 md:py-24"
+  use:inview={{ threshold: 0.1, unobserveOnEnter: true }}
+  on:inview_change={(event) => {
+    if (event.detail.inView && !finalCtaHasAnimated) {
+      finalCtaInView = true;
+      finalCtaHasAnimated = true;
+    }
+  }}
+>
+  <div class="container mx-auto px-4 text-center transition-all duration-1000 transform {finalCtaInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Ready to Transform Your Chess Game?</h2>
     <p class="text-lg md:text-xl text-sky-400 mb-10 md:mb-12 max-w-xl mx-auto">Join Invochess today to access powerful analysis tools and personalized AI-driven learning insights. Start winning more games!</p>
     <div class="mt-8">
