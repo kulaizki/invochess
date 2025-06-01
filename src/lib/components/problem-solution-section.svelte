@@ -5,7 +5,7 @@
 </script>
 
 <section 
-	class="pb-16 md:pb-24 text-gray-200"
+	class="py-16 md:py-24 text-gray-200"
 	use:inview={{ threshold: 0.1, unobserveOnEnter: true }}
 	on:inview_change={(event) => {
 		if (event.detail.inView && !hasAnimated) {

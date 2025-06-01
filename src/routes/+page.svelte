@@ -4,6 +4,7 @@
   import KeyFeaturesSection from "$lib/components/key-features-section.svelte";
   import HowItWorksSection from "$lib/components/how-it-works-section.svelte";
   import TechnologySneakPeekSection from "$lib/components/technology-sneak-peek-section.svelte";
+  import ZigzagBorder from "$lib/components/zigzag-border.svelte";
   import { inview } from 'svelte-inview';
 
   let finalCtaInView = false;
@@ -11,6 +12,7 @@
 </script>
 
 <HeroSection />
+<ZigzagBorder/>
 
 <div class="container mx-auto px-4 py-4 md:py-8">
   <ProblemSolutionSection /> 
