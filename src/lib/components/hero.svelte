@@ -22,7 +22,7 @@
 >
   <div class="container mx-auto text-center px-4 transition-all duration-1000 transform {isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 leading-tight">
-      Unlock Your Chess Potential <span class="block bg-gradient-to-r from-sky-500 to-sky-300 bg-clip-text text-transparent mt-1 md:mt-2">with AI-Powered Insights</span>
+      Unlock Your Chess Potential <span class="block bg-gradient-to-r from-sky-500 to-sky-300 bg-clip-text text-transparent mt-1 md:mt-2 [filter:drop-shadow(0_0_5px_theme(colors.sky.300/0.5))]">with AI-Powered Insights</span>
     </h1>
     <p class="text-lg md:text-xl text-gray-300 mb-10 md:mb-12 max-w-2xl mx-auto">
       Invochess combines Stockfish's analytical strength with Gemini's explanatory power to deepen your understanding and help you win more.
