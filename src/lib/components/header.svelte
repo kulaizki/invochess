@@ -1,5 +1,5 @@
 <nav
-	class="fixed top-0 right-0 left-0 z-50 border-b-2 border-sky-400/10 bg-gradient-to-r from-sky-600/80 to-sky-800/10 p-4 text-white shadow-md backdrop-blur-md"
+	class="fixed top-0 right-0 left-0 z-50 border-b-2 border-sky-300/10 bg-gradient-to-r from-sky-500/80 to-sky-700/10 p-4 text-white shadow-md backdrop-blur-md"
 >
 	<div class="container mx-auto flex items-center justify-between">
 		<a href="/" class="text-2xl font-bold"> Invochess </a>
