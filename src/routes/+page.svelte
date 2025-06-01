@@ -1,26 +1,26 @@
 <script lang="ts">
-  import HeroSection from "$lib/components/hero-section.svelte";
-  import ProblemSolutionSection from "$lib/components/problem-solution-section.svelte";
-  import KeyFeaturesSection from "$lib/components/key-features-section.svelte";
-  import HowItWorksSection from "$lib/components/how-it-works-section.svelte";
-  import TechnologySneakPeekSection from "$lib/components/technology-sneak-peek-section.svelte";
-  import ZigzagBorder from "$lib/components/zigzag-border.svelte";
+  import Hero from "$lib/components/hero.svelte";
+  import ProblemSolution from "$lib/components/problem-solution.svelte";
+  import KeyFeatures from "$lib/components/key-features.svelte";
+  import HowItWorks from "$lib/components/how-it-works.svelte";
+  import Technology from "$lib/components/technology.svelte";
+  import ZigzagBorder from "$lib/components/zigzag-separator.svelte";
   import { inview } from 'svelte-inview';
 
   let finalCtaInView = false;
   let finalCtaHasAnimated = false;
 </script>
 
-<HeroSection />
+<Hero/>
 <ZigzagBorder/>
 
 <div class="container mx-auto px-4 py-4 md:py-8">
-  <ProblemSolutionSection /> 
-  <KeyFeaturesSection />
+  <ProblemSolution/> 
+  <KeyFeatures/>
 </div>
 
-<HowItWorksSection />
-<TechnologySneakPeekSection />
+<HowItWorks/>
+<Technology/>
 
 <section 
   id="final-cta" 
