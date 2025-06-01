@@ -1,6 +1,6 @@
 # Invochess
 
-Invochess is an AI-powered web platform to help chess players improve their game. It uses Stockfish and Gemini for insightful analysis and personalized learning.
+Invochess is an web app powered by Stockfish and Gemini to help chess players improve their game.
 
 **The name "Invochess" blends "invoke" and "chess," symbolizing powerfully invoking chess understanding and improvement.**
 
