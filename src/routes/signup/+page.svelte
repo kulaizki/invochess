@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+
+  let isInView = false;
+
   // Future: Add form handling logic here, possibly Svelte stores for inputs, and Supabase auth calls.
   let email = '';
   let password = '';
@@ -13,10 +17,17 @@
     console.log("Form submitted", { email, password });
     alert("Signup functionality not yet implemented.");
   }
+
+  onMount(() => {
+    // Trigger animation on mount with a slight delay for the transition to be visible.
+    setTimeout(() => {
+      isInView = true;
+    }, 10); 
+  });
 </script>
 
-<div class="min-h-full flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-md w-full space-y-8 bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl">
+<div class="flex-grow flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8 bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl transition-all duration-1000 transform {isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
     <div>
       <h2 class="mt-6 text-center text-3xl md:text-4xl font-bold tracking-tight text-white">
         Create Your Invochess Account
