@@ -82,7 +82,7 @@
       <div class="mt-6">
         <button type="submit"
                 disabled={loading}
-                class="font-semibold hover:cursor-pointer text-white group relative w-full flex justify-center py-3 px-4 border border-transparent text-base font-medium rounded-md bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-sky-400 transition-colors duration-150 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed">
+                class="hover:cursor-pointer group relative inline-flex items-center justify-center gap-2.5 px-8 py-3 text-lg font-semibold text-white rounded-lg shadow-md transition-all duration-300 border-2 border-sky-900 bg-gradient-to-r from-sky-400 to-sky-600 hover:from-sky-500 hover:to-sky-700 hover:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed w-full">
           {#if loading}
             <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
