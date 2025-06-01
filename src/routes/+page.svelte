@@ -36,7 +36,7 @@
     <p class="text-lg md:text-xl text-sky-400 mb-10 md:mb-12 max-w-xl mx-auto">Join Invochess today to access powerful analysis tools and personalized AI-driven learning insights. Start winning more games!</p>
     <div class="mt-8">
       <a href="/signup"
-         class="group relative inline-flex items-center text-white justify-center gap-2.5 px-10 py-4 text-xl font-semibold text-gray-900 bg-sky-500 rounded-lg shadow-xl transition-all duration-300 border-2 border-transparent hover:bg-sky-600 hover:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-105"
+         class="group relative inline-flex items-center text-white justify-center gap-2.5 px-10 py-4 text-xl font-semibold rounded-lg shadow-xl transition-all duration-300 border-2 border-sky-900 bg-gradient-to-r from-sky-400 to-sky-600 hover:from-sky-500 hover:to-sky-700 hover:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-105"
          title="Sign up for Invochess">
         Get Started Now
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1.5">

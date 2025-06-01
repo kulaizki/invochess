@@ -22,7 +22,7 @@
 >
   <div class="container mx-auto text-center px-4 transition-all duration-1000 transform {isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 leading-tight">
-      Unlock Your Chess Potential <span class="block text-sky-400 mt-1 md:mt-2">with AI-Powered Insights</span>
+      Unlock Your Chess Potential <span class="block bg-gradient-to-r from-sky-500 to-sky-300 bg-clip-text text-transparent mt-1 md:mt-2">with AI-Powered Insights</span>
     </h1>
     <p class="text-lg md:text-xl text-gray-300 mb-10 md:mb-12 max-w-2xl mx-auto">
       Invochess combines Stockfish's analytical strength with Gemini's explanatory power to deepen your understanding and help you win more.
@@ -30,7 +30,7 @@
     
     <div class="mt-8 mb-12">
       <a href="/signup" 
-         class="group relative inline-flex items-center justify-center gap-2.5 px-8 py-3 text-lg font-semibold text-white bg-sky-500 rounded-lg shadow-md transition-all duration-300 border-2 border-transparent hover:bg-sky-600 hover:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-105"
+         class="group relative inline-flex items-center justify-center gap-2.5 px-8 py-3 text-lg font-semibold text-white rounded-lg shadow-md transition-all duration-300 border-2 border-sky-900 bg-gradient-to-r from-sky-400 to-sky-600 hover:from-sky-500 hover:to-sky-700 hover:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-105"
          title="Start your chess analysis journey with Invochess">
         Start Analyzing
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1">

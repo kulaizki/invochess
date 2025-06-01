@@ -9,6 +9,5 @@
 	<main class="flex-grow flex flex-col pt-16 bg-gradient-to-br from-gray-900 to-gray-950">
 		<slot />
 	</main>
-	<Header/>
 	<Footer/>
 </div>
