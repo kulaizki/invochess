@@ -37,6 +37,24 @@
 				>
 					Dashboard
 				</a>
+				<a 
+					href="/openings-lab"
+					class="ml-2 rounded-md px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-500/10"
+				>
+					Openings Lab
+				</a>
+				<a 
+					href="/game-analyzer"
+					class="ml-2 rounded-md px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-500/10"
+				>
+					Game Analyzer
+				</a>
+				<a 
+					href="/profile-analyzer"
+					class="ml-2 rounded-md px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-500/10"
+				>
+					Profile Analyzer
+				</a>
 			{:else}
 				<a
 					href="/login"
