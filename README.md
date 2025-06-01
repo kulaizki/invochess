@@ -19,7 +19,9 @@ Invochess is an web app powered by Stockfish and Gemini to help chess players im
 
 ## Key Features (Planned/In Development)
 
-*   In-depth Game Analysis (PGN upload/manual input)
+*   Game Analyzer
+*   Openings Lab
+*   Profile Analyzer
 *   AI-Generated Explanations for complex positions
 *   Key Moment Identification
 *   Personalized Feedback & Common Mistake Analysis
