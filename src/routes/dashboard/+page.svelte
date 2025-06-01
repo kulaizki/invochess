@@ -45,17 +45,15 @@
             await goto('/'); // Go to homepage after logout
           }
         }}
-        class="mt-8 px-6 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-md transition-colors duration-150 transform hover:scale-105">
+        class="hover:cursor-pointer mt-8 px-6 py-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-md transition-colors duration-150 transform hover:scale-105">
         Log Out
       </button>
     </div>
   {:else}
-    <!-- Optional: Show a loading message or spinner while checking auth state -->
     <p class="text-white">Loading dashboard...</p> 
   {/if}
 </div>
 
-<!-- Need to import supabase for the logout button -->
 <script context="module" lang="ts">
   import { supabase } from '$lib/supabaseClient';
 </script> 
