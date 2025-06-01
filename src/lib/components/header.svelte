@@ -23,17 +23,17 @@
 </script>
 
 <nav
-	class="fixed top-0 right-0 left-0 z-50 border-b-2 border-sky-300/10 bg-gradient-to-r from-sky-600/80 to-sky-700/10 p-4 text-white shadow-md backdrop-blur-md"
+	class="fixed top-0 right-0 left-0 z-50 border-b-2 border-sky-900 bg-sky-600 p-2 text-white shadow-md backdrop-blur-md"
 >
 	<div class="container mx-auto flex items-center justify-between">
 		<a href="/" class="flex items-center group z-10" on:click={() => mobileMenuOpen = false}>
 			<img
 				src="/invochess-logo.png"
 				alt="Invochess Logo"
-				class="h-8 w-auto group-hover:opacity-80 transition-opacity duration-150"
+				class="h-8 w-auto group-hover:opacity-90 transition-opacity duration-150"
 			/>
 			{#if !$user}
-				<span class="ml-2 text-2xl font-bold group-hover:text-sky-200 transition-colors duration-150">Invochess</span>
+				<span class="ml-2 text-2xl font-bold group-hover:text-sky-100 transition-colors duration-150">Invochess</span>
 			{/if}
 		</a>
 
@@ -42,25 +42,25 @@
 			{#if $user}
 				<a
 					href="/dashboard"
-					class="px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-500/30 rounded-md"
+					class="px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-700/80 rounded-md"
 				>
 					Dashboard
 				</a>
 				<a
 					href="/openings-lab"
-					class="ml-2 px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-500/30 rounded-md"
+					class="ml-2 px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-700/80 rounded-md"
 				>
 					Openings Lab
 				</a>
 				<a
 					href="/game-analyzer"
-					class="ml-2 px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-500/30 rounded-md"
+					class="ml-2 px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-700/80 rounded-md"
 				>
 					Game Analyzer
 				</a>
 				<a
 					href="/profile-analyzer"
-					class="ml-2 px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-500/30 rounded-md"
+					class="ml-2 px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-700/80 rounded-md"
 				>
 					Profile Analyzer
 				</a>
@@ -72,20 +72,20 @@
 			{#if $user}
 				<button
 					on:click={handleLogout}
-					class="hover:cursor-pointer rounded-md px-3 py-2 font-semibold transition-colors duration-150 hover:bg-red-500/50 hover:text-red-100"
+					class="hover:cursor-pointer rounded-md px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-700/80 hover:text-sky-100"
 				>
 					Logout
 				</button>
 			{:else}
 				<a
 					href="/login"
-					class="rounded-md px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-500/30"
+					class="rounded-md px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-700/80"
 				>
 					Login
 				</a>
 				<a
 					href="/signup"
-					class="ml-2 rounded-md px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-500/30"
+					class="ml-2 rounded-md px-3 py-2 font-semibold transition-colors duration-150 hover:bg-sky-700/80"
 				>
 					Register
 				</a>
@@ -115,13 +115,13 @@
 		<div class="md:hidden flex items-center">
 			<a
 				href="/login"
-				class="rounded-md px-3 py-2 text-sm font-semibold transition-colors duration-150 hover:bg-sky-500/10"
+				class="rounded-md px-3 py-2 text-sm font-semibold transition-colors duration-150 hover:bg-sky-700/80"
 			>
 				Login
 			</a>
 			<a
 				href="/signup"
-				class="ml-2 rounded-md px-3 py-2 text-sm font-semibold transition-colors duration-150 hover:bg-sky-500/10"
+				class="ml-2 rounded-md px-3 py-2 text-sm font-semibold transition-colors duration-150 hover:bg-sky-700/80"
 			>
 				Register
 			</a>
@@ -139,7 +139,7 @@
 				<a href="/profile-analyzer" class="block px-3 py-2 rounded-md hover:bg-sky-600/50" on:click={toggleMobileMenu}>Profile Analyzer</a>
 				<button 
 					on:click={handleLogout} 
-					class="block w-full text-left px-3 py-2 rounded-md hover:bg-red-500/50 hover:text-red-100 font-semibold"
+					class="block w-full text-left px-3 py-2 rounded-md hover:bg-sky-700/80 hover:text-sky-100 font-semibold"
 				>
 					Logout
 				</button>
