@@ -6,16 +6,40 @@
   import Technology from "$lib/components/technology.svelte";
   import ZigzagBorder from "$lib/components/zigzag-border.svelte";
   import FinalCTA from "$lib/components/final-cta.svelte";
+
+  import { user } from "$lib/store";
+  import { goto } from "$app/navigation";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    // If the user is logged in when they land on the homepage,
+    // redirect them to the dashboard.
+    const unsubscribe = user.subscribe(currentUser => {
+      if (currentUser) {
+        if (typeof window !== 'undefined') { 
+          goto("/dashboard", { replaceState: true });
+        }
+      }
+    });
+    return unsubscribe; // Cleanup subscription
+  });
+
 </script>
 
-<Hero/>
-<ZigzagBorder/>
+{#if !$user}
+  <Hero/>
+  <ZigzagBorder/>
 
-<div class="container mx-auto px-4 py-4 md:py-8">
-  <ProblemSolution/> 
-  <KeyFeatures/>
-</div>
+  <div class="container mx-auto px-4 py-4 md:py-8">
+    <ProblemSolution/> 
+    <KeyFeatures/>
+  </div>
 
-<HowItWorks/>
-<Technology/>
-<FinalCTA />
+  <HowItWorks/>
+  <Technology/>
+  <FinalCTA />
+{:else}
+  <div class="flex-grow flex flex-col items-center justify-center">
+    <p class="text-white text-xl">Redirecting to your dashboard...</p>
+  </div>
+{/if}
