@@ -1,28 +1,46 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { supabase } from '$lib/supabaseClient'; 
+  import { goto } from '$app/navigation';
 
   let isInView = false;
 
-  // Future: Add form handling logic here, possibly Svelte stores for inputs, and Supabase auth calls.
   let email = '';
   let password = '';
   let confirmPassword = '';
+  let errorMessage: string | null = null;
+  let loading = false;
 
-  function handleSubmit() {
+  async function handleSubmit() {
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      errorMessage = "Passwords do not match!";
       return;
     }
-    // TODO: Integrate with Supabase Auth
-    console.log("Form submitted", { email, password });
-    alert("Signup functionality not yet implemented.");
+    
+    loading = true;
+    errorMessage = null;
+
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      errorMessage = error.message;
+      console.error("Signup error:", error.message);
+      loading = false;
+    } else if (data.user) {
+      await goto('/awaiting-confirmation');
+    } else {
+      errorMessage = "An unexpected issue occurred during signup. Please try again.";
+      loading = false;
+    }
   }
 
   onMount(() => {
-    // Trigger animation on mount with a slight delay for the transition to be visible.
     setTimeout(() => {
       isInView = true;
-    }, 10); 
+    }, 10);
   });
 </script>
 
@@ -37,6 +55,11 @@
       </p>
     </div>
     <form class="mt-8 space-y-6" on:submit|preventDefault={handleSubmit}>
+      {#if errorMessage}
+        <div class="p-3 bg-red-500/30 text-red-300 border border-red-500 rounded-md text-sm">
+          {errorMessage}
+        </div>
+      {/if}
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
           <label for="email-address" class="sr-only">Email address</label>
@@ -60,8 +83,17 @@
 
       <div>
         <button type="submit" 
-                class="group relative text-white hover:cursor-pointer font-semibold w-full flex justify-center py-3 px-4 border border-transparent text-base font-medium rounded-md text-gray-900 bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-sky-400 transition-colors duration-150 transform hover:scale-[1.02]">
-          Create Account
+                disabled={loading}
+                class="group relative text-white hover:cursor-pointer font-semibold w-full flex justify-center py-3 px-4 border border-transparent text-base font-medium rounded-md bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-sky-400 transition-colors duration-150 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed">
+          {#if loading}
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Creating Account...
+          {:else}
+            Create Account
+          {/if}
         </button>
       </div>
     </form>
