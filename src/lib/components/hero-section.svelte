@@ -1,5 +1,26 @@
-<section class="text-white flex flex-col justify-center min-h-screen py-16 md:py-20">
-  <div class="container mx-auto text-center px-4">
+<script lang="ts">
+  import { inview } from 'svelte-inview';
+  import { onMount } from 'svelte';
+
+  let isInView = false;
+  let hasAnimated = false;
+
+  onMount(() => {
+    isInView = true;
+    hasAnimated = true;
+  });
+</script>
+
+<section class="text-white flex flex-col justify-center min-h-screen py-16 md:py-20"
+  use:inview={{ threshold: 0.1, unobserveOnEnter: true }}
+  on:inview_change={(event) => {
+    if (event.detail.inView && !hasAnimated) {
+      isInView = true;
+      hasAnimated = true;
+    }
+  }}
+>
+  <div class="container mx-auto text-center px-4 transition-all duration-1000 transform {isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 leading-tight">
       Unlock Your Chess Potential <span class="block text-sky-400 mt-1 md:mt-2">with AI-Powered Insights</span>
     </h1>
