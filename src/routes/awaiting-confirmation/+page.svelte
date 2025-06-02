@@ -1,6 +1,5 @@
 <script lang="ts">
-  // No specific logic needed for this page, it's purely informational.
-  // You could add a countdown or a button to resend confirmation if desired in the future.
+
 </script>
 
 <div class="flex-grow flex flex-col items-center justify-center p-6 text-center">
@@ -14,7 +13,6 @@
     </p>
     <p class="text-sm text-gray-400">
       Didn't receive an email? You can try signing up again or contact support if the issue persists.
-      <!-- In a future step, you could add a "Resend confirmation" button here -->
     </p>
     <div class="mt-8">
       <a href="/login" class="px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-md transition-colors duration-150">
