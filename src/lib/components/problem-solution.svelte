@@ -16,7 +16,8 @@
 >
 	<div class="container mx-auto px-4 transition-all duration-1000 transform {isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
 		<div class="text-center mb-14 md:mb-20 max-w-3xl mx-auto">
-			<h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight">Don't Just See Moves. <span class="text-sky-400">Understand Them.</span></h2>
+			<h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight">Don't Just See Moves.</h2>
+			<p class="text-4xl sm:text-5xl font-bold text-sky-400 leading-tight mt-1 sm:mt-2">Understand Them.</p>
 			<p class="text-lg md:text-xl text-gray-400 mt-4 md:mt-5">
 				Invochess goes beyond simple engine outputs, offering deep insights into the 'why' behind every critical position.
 			</p>
