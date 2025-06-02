@@ -82,7 +82,7 @@
   :global(.cg-wrap) {
     width: 100%;
     height: auto; 
-    max-width: 500px; /* Or your preferred max size */
+    max-width: 500px; 
     margin: 0 auto;
   }
 </style>
