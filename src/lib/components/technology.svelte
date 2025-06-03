@@ -8,9 +8,9 @@
     {
       name: 'Stockfish 16',
       description: 'The most powerful open-source chess engine, providing deep tactical and positional analysis.',
-      color: 'text-yellow-400',
-      bgColor: 'bg-yellow-400',
-      hoverBorderColor: 'hover:border-yellow-400'
+      color: 'text-sky-400',
+      bgColor: 'bg-sky-400',
+      hoverBorderColor: 'hover:border-sky-400'
     },
     {
       name: 'Google Gemini',
