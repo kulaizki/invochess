@@ -34,9 +34,9 @@
 					Standard chess engines show you the best lines, but often leave you wondering about the underlying strategy or the reasons for specific move choices. This makes true learning difficult.
 				</p>
 				<ul class="list-disc list-inside text-gray-400 space-y-2.5 pl-2 mt-auto text-lg">
-					<li>Overwhelmed by complex variations.</li>
-					<li>Unclear on long-term strategic plans.</li>
-					<li>Struggling to learn from mistakes effectively.</li>
+					<li>Lost in complex variations.</li>
+					<li>Vague strategic plans.</li>
+					<li>Ineffective mistake learning.</li>
 				</ul>
 			</div>
 			<div class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl 
