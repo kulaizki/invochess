@@ -13,7 +13,7 @@
 
 <section 
   class="hero-section text-white flex flex-col justify-center min-h-screen py-16 md:py-20 relative bg-cover bg-center bg-no-repeat border-b-2 border-sky-600"
-  style="background-image: url('/chess-bg.png');"
+  style="background-image: url('/chess-bg-min.png');"
   use:inview={{ threshold: 0.1, unobserveOnEnter: true }}
   on:inview_change={(event) => {
     if (event.detail.inView && !hasAnimated) {
