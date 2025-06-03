@@ -45,7 +45,7 @@
           href="https://fitzsixto.com"
           target="_blank"
           rel="noopener"
-          class="[text-shadow:0_0_8px_rgba(0,255,8,0.4)] bg-gradient-to-r from-sky-300 to-sky-600 hover:from-sky-200 hover:to-sky-500 bg-clip-text text-transparent font-bold transition-all ease-in-out duration-500 delay-300"
+          class="[text-shadow:0_0_8px_theme(colors.sky.400/0.6)] bg-gradient-to-r from-sky-300 to-sky-600 hover:from-sky-200 hover:to-sky-500 bg-clip-text text-transparent font-bold transition-all ease-in-out duration-500 delay-300"
         >
           Fitzsixto 
         </a>. All rights reserved.
