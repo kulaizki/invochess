@@ -12,10 +12,10 @@ Invochess is an web app powered by Stockfish and Gemini to help chess players im
 
 *   SvelteKit
 *   Tailwind CSS
-*   Supabase (PostgreSQL, Drizzle ORM, Auth)
-*   Stockfish (via Edge Functions)
-*   Gemini API (via Edge Functions)
-*   Vercel (planned for deployment)
+*   Supabase 
+*   Vercel 
+*   Gemini 
+*   Chess-API
 
 ## Key Features (Planned/In Development)
 
