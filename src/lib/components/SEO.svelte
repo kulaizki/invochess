@@ -6,6 +6,8 @@
 		"Unlock your chess potential with Invochess. Get AI-powered insights by combining Stockfish's analytical strength with Gemini's explanatory power to deepen your understanding and win more games.";
 	export let image: string = '/invochess-og.png'; 
 	export let siteName: string = 'Invochess';
+	export let author: string = 'Fitzsixto';
+	export let keywords: string = 'chess, AI chess, SvelteKit, Stockfish, Gemini, chess analysis, game analyzer, openings lab, chess improvement, chess learning, chess tools, AI-powered chess, Supabase, Vercel';
 
 	let siteUrlBase: string = 'https://www.invochess.vercel.app';
 
@@ -43,6 +45,12 @@
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<link rel="canonical" href={canonicalUrl} />
+	{#if author}
+		<meta name="author" content={author} />
+	{/if}
+	{#if keywords}
+		<meta name="keywords" content={keywords} />
+	{/if}
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
