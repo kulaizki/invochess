@@ -23,7 +23,7 @@
 </script>
 
 <nav
-	class="fixed top-0 right-0 left-0 z-50 border-b-2 border-sky-900 bg-sky-600 p-2 text-white shadow-md backdrop-blur-md"
+	class="fixed top-0 right-0 left-0 z-50 border-b-2 border-sky-700/50 bg-gray-950/85 p-2 text-white shadow-md backdrop-blur-md"
 >
 	<div class="container mx-auto flex items-center justify-between">
 		<a href="/" class="flex items-center group z-10" on:click={() => mobileMenuOpen = false}>
@@ -131,7 +131,7 @@
 
 	<!-- Mobile Menu -->
 	{#if mobileMenuOpen && $user}
-		<div transition:fly={{ y: -20, duration: 300 }} class="md:hidden fixed inset-x-0 top-16 bg-sky-700/95 backdrop-blur-sm shadow-lg pt-2 pb-4 z-40">
+		<div transition:fly={{ y: -20, duration: 300 }} class="md:hidden fixed inset-x-0 top-16 bg-gray-900/90 backdrop-blur-sm shadow-lg pt-2 pb-4 z-40">
 			<div class="container mx-auto px-4 flex flex-col space-y-2">
 				<a href="/dashboard" class="block px-3 py-2 rounded-md hover:bg-sky-600/50" on:click={toggleMobileMenu}>Dashboard</a>
 				<a href="/openings-lab" class="block px-3 py-2 rounded-md hover:bg-sky-600/50" on:click={toggleMobileMenu}>Openings Lab</a>
