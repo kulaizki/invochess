@@ -16,7 +16,7 @@
   // Configuration for Chessground
   let config = {
     fen: currentFen,
-    orientation: 'white' as "white" | "black", // Explicitly type orientation
+    orientation: 'white' as "white" | "black",
     movable: {
       free: false,
     },
@@ -41,7 +41,6 @@
   async function loadPgn() {
     try {
       const newGame = new Chess();
-      // Preprocess PGN to remove comments within curly braces
       const cleanedPgnInput = pgnInput.replace(/\{[\s\S]*?\}/g, '');
       
       if (typeof newGame.loadPgn === 'function') {
@@ -58,75 +57,104 @@
         fen: currentFen,
       };
       alert('PGN Loaded Successfully!');
-      await fetchAnalysis(currentFen); // Fetch analysis for the new FEN
+      await fetchAnalysis(currentFen);
     } catch (e: any) {
       console.error('Error loading PGN:', e);
       alert('Invalid PGN: ' + e.message);
-      analysisError = 'Failed to load PGN: ' + e.message; // Show more specific error
+      analysisError = 'Failed to load PGN: ' + e.message;
       analysisResult = null;
     }
   }
 
 </script>
 
-<div class="container mx-auto p-8 flex flex-col items-center">
-  <h1 class="text-3xl font-bold mb-6">Game Analyzer</h1>
+<div class="page-container w-full max-w-screen-xl mx-auto p-4 md:p-8 flex flex-col items-center">
+  <h1 class="text-3xl font-bold mb-6 text-center">Game Analyzer</h1>
   
-  <div class="w-full max-w-2xl mb-6">
-    <textarea 
-      bind:value={pgnInput} 
-      rows="6" 
-      placeholder="Paste PGN here..." 
-      class="w-full p-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:ring-sky-500 focus:border-sky-500 resize-none"
-    ></textarea>
-  </div>
-  
-  <button 
-    on:click={loadPgn} 
-    disabled={isAnalyzing}
-    class="mb-6 px-6 py-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-md transition-colors duration-150 disabled:opacity-50"
-  >
-    {isAnalyzing ? 'Analyzing...' : 'Load PGN & Analyze'}
-  </button>
+  <div class="main-content-area w-full flex flex-col md:flex-row gap-4 md:gap-8">
+    <!-- Left Column: Chessboard -->
+    <div class="left-column w-full md:w-1/2 flex justify-center items-center">
+      <div class="chessboard-container w-full">
+        <Chessground bind:this={chessgroundComponent} {...config} />
+      </div>
+    </div>
 
-  <div class="w-full max-w-md mb-4">
-    <Chessground bind:this={chessgroundComponent} {...config} />
-  </div>
+    <!-- Right Column: PGN Input and Analysis -->
+    <div class="right-column w-full md:w-1/2 flex flex-col gap-6">
+      <div class="pgn-input-section">
+        <textarea 
+          bind:value={pgnInput} 
+          rows="8" 
+          placeholder="Paste PGN here..." 
+          class="w-full p-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:ring-sky-500 focus:border-sky-500 resize-y"
+        ></textarea>
+        <button 
+          on:click={loadPgn} 
+          disabled={isAnalyzing}
+          class="mt-2 px-6 py-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-md transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed w-full"
+        >
+          {isAnalyzing ? 'Analyzing...' : 'Load PGN & Analyze'}
+        </button>
+      </div>
 
-  <!-- Stockfish analysis output -->
-  <div class="w-full max-w-2xl mt-6 p-4 border border-gray-600 rounded-md bg-gray-800">
-    <h2 class="text-xl font-semibold mb-2">Analysis:</h2>
-    {#if isAnalyzing}
-      <p class="text-gray-400">Fetching analysis from chess-api.com...</p>
-    {:else if analysisError}
-      <p class="text-red-400"><strong>Error:</strong> {analysisError}</p>
-      <pre class="text-sm text-gray-300 whitespace-pre-wrap">Current FEN: {currentFen}</pre>
-    {:else if analysisResult}
-      <p><strong>Evaluation:</strong> {analysisResult.eval} ({analysisResult.text})</p>
-      <p><strong>Best Move (SAN):</strong> {analysisResult.san}</p>
-      <p><strong>Depth:</strong> {analysisResult.depth}</p>
-      <p><strong>Win Chance:</strong> {(analysisResult.winChance * 100).toFixed(2)}%</p>
-      <p><strong>Continuation:</strong> {analysisResult.continuationArr.join(' ')}</p>
-      <p class="text-sm text-gray-400 mt-2">Raw FEN: {analysisResult.fen}</p>
-      <details class="mt-2">
-        <summary class="cursor-pointer text-sky-400 hover:text-sky-300">Show full API response</summary>
-        <pre class="text-xs text-gray-300 whitespace-pre-wrap bg-gray-700 p-2 rounded-md mt-1">{JSON.stringify(analysisResult, null, 2)}</pre>
-      </details>
-    {:else}
-      <p class="text-gray-400">Load a PGN to see analysis.</p>
-      <pre class="text-sm text-gray-300 whitespace-pre-wrap">Current FEN: {currentFen}</pre>
-    {/if}
+      <div class="analysis-section w-full p-4 border border-gray-600 rounded-md bg-gray-800 min-h-[200px]">
+        <h2 class="text-xl font-semibold mb-2">Analysis:</h2>
+        {#if isAnalyzing}
+          <p class="text-gray-400">Fetching analysis from chess-api.com...</p>
+        {:else if analysisError}
+          <p class="text-red-400"><strong>Error:</strong> {analysisError}</p>
+          <pre class="text-sm text-gray-300 whitespace-pre-wrap mt-2">Current FEN: {currentFen}</pre>
+        {:else if analysisResult}
+          <p><strong>Evaluation:</strong> {analysisResult.eval} ({analysisResult.text})</p>
+          <p><strong>Best Move (SAN):</strong> {analysisResult.san}</p>
+          <p><strong>Depth:</strong> {analysisResult.depth}</p>
+          <p><strong>Win Chance:</strong> {(analysisResult.winChance * 100).toFixed(2)}%</p>
+          <p><strong>Continuation:</strong> {analysisResult.continuationArr.join(' ')}</p>
+          <p class="text-sm text-gray-400 mt-2">FEN from API: {analysisResult.fen}</p>
+          <details class="mt-2">
+            <summary class="cursor-pointer text-sky-400 hover:text-sky-300">Show full API response</summary>
+            <pre class="text-xs text-gray-300 whitespace-pre-wrap bg-gray-700 p-2 rounded-md mt-1">{JSON.stringify(analysisResult, null, 2)}</pre>
+          </details>
+        {:else}
+          <p class="text-gray-400">Load a PGN to see analysis.</p>
+          <pre class="text-sm text-gray-300 whitespace-pre-wrap mt-2">Current FEN: {currentFen}</pre>
+        {/if}
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
-  :global(.cg-wrap) {
-    width: 100%;
-    height: auto; 
-    max-width: 500px; 
-    margin: 0 auto;
+  .chessboard-container :global(.cg-wrap) {
+    width: 100% !important; 
+    height: 0 !important; 
+    padding-bottom: 100%;
+    position: relative;
+    display: block; 
   }
-  button:disabled {
-    cursor: not-allowed;
+  .chessboard-container :global(cg-board) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) { 
+    .main-content-area {
+      flex-direction: column;
+    }
+    .left-column,
+    .right-column {
+      width: 100%;
+    }
+    .chessboard-container {
+        max-width: 400px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .chessboard-container :global(.cg-wrap) {
+        padding-bottom: 100%; 
+    }
   }
 </style>
