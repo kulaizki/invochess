@@ -2,6 +2,7 @@
   import { Chess } from 'chess.js';
   import { Chessground } from 'svelte-chessground';
   import { getChessApiAnalysis, type ChessApiRequest, type ChessApiResponse } from '$lib/chessApi';
+  import { fade } from 'svelte/transition'; 
 
   let pgnInput = '';
   let game = new Chess();
@@ -12,6 +13,11 @@
   let isAnalyzing = false;
   let analysisResult: ChessApiResponse | null = null;
   let analysisError: string | null = null;
+
+  // Toast state
+  let showToast = false;
+  let toastMessage = '';
+  let toastTimeout: ReturnType<typeof setTimeout>;
 
   // Configuration for Chessground
   let config = {
@@ -24,6 +30,15 @@
       // move: (orig: any, dest: any, captured: any) => { /* Handle user moves */ }
     }
   };
+
+  function triggerToast(message: string, duration: number = 3000) {
+    toastMessage = message;
+    showToast = true;
+    clearTimeout(toastTimeout); // Clear any existing timeout
+    toastTimeout = setTimeout(() => {
+      showToast = false;
+    }, duration);
+  }
 
   async function fetchAnalysis(fenToAnalyze: string) {
     isAnalyzing = true;
@@ -47,7 +62,7 @@
         newGame.loadPgn(cleanedPgnInput);
       } else {
         console.error('loadPgn function not found in chess.js instance.');
-        alert('Could not load PGN. Incompatible chess.js version or PGN error.');
+        triggerToast('Could not load PGN. Incompatible chess.js version or PGN error.', 5000);
         return;
       }
       game = newGame;
@@ -56,17 +71,23 @@
         ...config,
         fen: currentFen,
       };
-      alert('PGN Loaded Successfully!');
+      triggerToast('PGN Loaded Successfully!');
       await fetchAnalysis(currentFen);
     } catch (e: any) {
       console.error('Error loading PGN:', e);
-      alert('Invalid PGN: ' + e.message);
+      triggerToast('Invalid PGN: ' + e.message, 5000);
       analysisError = 'Failed to load PGN: ' + e.message;
       analysisResult = null;
     }
   }
 
 </script>
+
+{#if showToast}
+  <div transition:fade={{ duration: 300 }} class="toast-notification">
+    {toastMessage}
+  </div>
+{/if}
 
 <div class="page-container w-full max-w-screen-xl mx-auto p-4 md:p-8 flex flex-col items-center">
   <h1 class="text-3xl font-bold mb-6 text-center">Game Analyzer</h1>
@@ -111,10 +132,6 @@
           <p><strong>Win Chance:</strong> {(analysisResult.winChance * 100).toFixed(2)}%</p>
           <p><strong>Continuation:</strong> {analysisResult.continuationArr.join(' ')}</p>
           <p class="text-sm text-gray-400 mt-2">FEN from API: {analysisResult.fen}</p>
-          <details class="mt-2">
-            <summary class="cursor-pointer text-sky-400 hover:text-sky-300">Show full API response</summary>
-            <pre class="text-xs text-gray-300 whitespace-pre-wrap bg-gray-700 p-2 rounded-md mt-1">{JSON.stringify(analysisResult, null, 2)}</pre>
-          </details>
         {:else}
           <p class="text-gray-400">Load a PGN to see analysis.</p>
           <pre class="text-sm text-gray-300 whitespace-pre-wrap mt-2">Current FEN: {currentFen}</pre>
@@ -156,5 +173,18 @@
     .chessboard-container :global(.cg-wrap) {
         padding-bottom: 100%; 
     }
+  }
+
+  .toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00a1f1; /* Sky blue background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 9999; /* Ensure it's on top */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   }
 </style>
