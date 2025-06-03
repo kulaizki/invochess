@@ -28,7 +28,7 @@
 	<div class="container mx-auto flex items-center justify-between">
 		<a href="/" class="flex items-center group z-10" on:click={() => mobileMenuOpen = false}>
 			<img
-				src="/invochess-logo.png"
+				src="/invochess-logo-min.png"
 				alt="Invochess Logo"
 				class="h-8 w-auto group-hover:opacity-90 transition-opacity duration-150"
 			/>
