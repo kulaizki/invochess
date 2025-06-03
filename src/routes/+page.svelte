@@ -27,7 +27,6 @@
 
 {#if !$user}
 	<Hero />
-	<ZigzagBorder />
 	<ProblemSolution />
 	<ZigzagBorder />
 	<KeyFeatures />

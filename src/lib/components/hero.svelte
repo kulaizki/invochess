@@ -11,7 +11,9 @@
   });
 </script>
 
-<section class="text-white flex flex-col justify-center min-h-screen py-16 md:py-20"
+<section 
+  class="hero-section text-white flex flex-col justify-center min-h-screen py-16 md:py-20 relative bg-cover bg-center bg-no-repeat border-b-2 border-sky-600"
+  style="background-image: url('/chess-bg.png');"
   use:inview={{ threshold: 0.1, unobserveOnEnter: true }}
   on:inview_change={(event) => {
     if (event.detail.inView && !hasAnimated) {
@@ -20,7 +22,7 @@
     }
   }}
 >
-  <div class="container mx-auto text-center px-4 transition-all duration-1000 transform {isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
+  <div class="container relative z-[2] mx-auto text-center px-4 transition-all duration-1000 transform {isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
     <div class="mb-4 sm:mb-6 inline-block">
       <div class="p-0.5 rounded-full bg-gradient-to-r from-sky-400 via-cyan-400 to-sky-500 hover:from-sky-500 hover:via-cyan-500 hover:to-sky-600 transition-all duration-300 shadow-lg">
         <span class="block bg-sky-700 text-white text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full">
@@ -47,3 +49,16 @@
     </div>
   </div>
 </section>  
+
+<style>
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(17, 24, 39, 0.75); /* Dark overlay */
+    
+  }
+</style>  
