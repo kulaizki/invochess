@@ -21,6 +21,13 @@
   }}
 >
   <div class="container mx-auto text-center px-4 transition-all duration-1000 transform {isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
+    <div class="mb-4 sm:mb-6 inline-block">
+      <div class="p-0.5 rounded-full bg-gradient-to-r from-sky-400 via-cyan-400 to-sky-500 hover:from-sky-500 hover:via-cyan-500 hover:to-sky-600 transition-all duration-300 shadow-lg">
+        <span class="block bg-sky-700 text-white text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full">
+          Powered by Gemini & Stockfish
+        </span>
+      </div>
+    </div>
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 leading-tight">
       Unlock Your Chess Potential <span class="block bg-gradient-to-r from-sky-500 to-sky-300 bg-clip-text text-transparent mt-1 md:mt-2 [filter:drop-shadow(0_0_5px_theme(colors.sky.300/0.5))]">with AI-Powered Insights</span>
     </h1>
