@@ -17,3 +17,7 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+
+* {
+  scrollbar-gutter: stable;
+}
