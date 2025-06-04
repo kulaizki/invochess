@@ -28,7 +28,7 @@
 
 <div class="flex flex-col min-h-screen">
 	<Header/>
-	<main class="flex-grow flex flex-col pt-16 bg-gradient-to-br from-gray-900 to-gray-950">
+	<main class="flex-grow flex flex-col pt-12 bg-gradient-to-br from-gray-900 to-gray-950">
 		{#if $user}
 			{#key $page.url.pathname}
 				<div class="flex-grow flex flex-col" in:fly={{ y: 20, duration: 500, delay: 200 }}>
