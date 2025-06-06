@@ -38,7 +38,7 @@
     <button 
       on:click={handleAnalyzeProfile} 
       disabled={isLoading}
-      class="px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-md transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
+      class="hover:cursor-pointer px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-md transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {#if isLoading}
         Analyzing...
