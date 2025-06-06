@@ -1,39 +1,33 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { supabase } from '$lib/supabaseClient'; 
-  import { goto } from '$app/navigation';
 
   let isInView = false;
-
   let email = '';
-  let password = '';
   let errorMessage: string | null = null;
+  let successMessage: string | null = null;
   let loading = false;
 
   async function handleSubmit() {
     loading = true;
     errorMessage = null;
+    successMessage = null;
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/update-password`,
     });
 
     if (error) {
       errorMessage = error.message;
-      console.error("Login error:", error.message);
-    } else if (data.user) {
-      email = '';
-      password = '';
-      await goto('/dashboard'); 
+      console.error("Password reset error:", error.message);
     } else {
-      errorMessage = "An unexpected issue occurred during login.";
+      successMessage = 'If an account exists for this email, a password reset link has been sent.';
+      email = '';
     }
     loading = false;
   }
 
   onMount(() => {
-    // Trigger animation on mount with a slight delay for the transition to be visible.
     setTimeout(() => {
       isInView = true;
     }, 10); 
@@ -44,10 +38,10 @@
   <div class="max-w-md w-full space-y-8 bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl transition-all duration-1000 transform {isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}">
     <div>
       <h2 class="mt-6 text-center text-3xl md:text-4xl font-bold tracking-tight text-white">
-        Log in to Invochess
+        Forgot Password
       </h2>
       <p class="mt-2 text-center text-sm text-gray-400">
-        Or <a href="/signup" class="font-medium text-sky-400 hover:text-sky-300">create an account if you don't have one</a>
+        Enter your email and we'll send you a link to reset your password.
       </p>
     </div>
     <form class="mt-8 space-y-6" on:submit|preventDefault={handleSubmit}>
@@ -56,26 +50,17 @@
           {errorMessage}
         </div>
       {/if}
+      {#if successMessage}
+        <div class="p-3 bg-green-500/30 text-green-300 border border-green-500 rounded-md text-sm mb-4">
+          {successMessage}
+        </div>
+      {/if}
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
           <label for="email-address" class="sr-only">Email address</label>
           <input id="email-address" name="email" type="email" bind:value={email} required
-                 class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-700 bg-gray-700/50 placeholder-gray-400 text-gray-200 rounded-t-md focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 sm:text-sm"
+                 class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-700 bg-gray-700/50 placeholder-gray-400 text-gray-200 focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 sm:text-sm"
                  placeholder="Email address">
-        </div>
-        <div>
-          <label for="password" class="sr-only">Password</label>
-          <input id="password" name="password" type="password" bind:value={password} required
-                 class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-700 bg-gray-700/50 placeholder-gray-400 text-gray-200 rounded-b-md focus:outline-none focus:ring-sky-500 focus:border-sky-500 focus:z-10 sm:text-sm"
-                 placeholder="Password">
-        </div>
-      </div>
-
-      <div class="flex items-center justify-between mt-6">
-        <div class="text-sm">
-          <a href="/forgot-password" class="font-medium text-sky-400 hover:text-sky-300">
-            Forgot your password?
-          </a>
         </div>
       </div>
 
@@ -88,12 +73,17 @@
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            Signing In...
+            Sending...
           {:else}
-            Sign In
+            Send Password Reset Email
           {/if}
         </button>
       </div>
     </form>
+    <div class="text-sm text-center">
+      <a href="/login" class="font-medium text-sky-400 hover:text-sky-300">
+        Back to login
+      </a>
+    </div>
   </div>
 </div> 
