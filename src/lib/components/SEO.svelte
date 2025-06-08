@@ -6,7 +6,7 @@
 		"Unlock your chess potential with Invochess.";
 	export let image: string = '/invochess-opengraph.png';
 	export let siteName: string = 'Invochess';
-	export let author: string | null = 'Fitzsixto';
+	export let author: string | null = null;
 	export let keywords: string =
 		'chess, AI chess, SvelteKit, Stockfish, Gemini, chess analysis, game analyzer, openings lab, chess improvement, chess learning, chess tools, AI-powered chess, Supabase, Vercel';
 
