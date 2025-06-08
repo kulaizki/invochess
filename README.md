@@ -1,5 +1,7 @@
 # Invochess
 
+![Invochess](/static/invochess-opengraph.png)
+
 Invochess is an web app powered by Stockfish and Gemini to help chess players improve their game.
 
 **The name "Invochess" blends "invoke" and "chess," symbolizing powerfully invoking chess understanding and improvement.**
