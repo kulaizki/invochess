@@ -10,7 +10,7 @@
 	export let keywords: string =
 		'chess, AI chess, SvelteKit, Stockfish, Gemini, chess analysis, game analyzer, openings lab, chess improvement, chess learning, chess tools, AI-powered chess, Supabase, Vercel';
 
-	const siteUrlBase: string = 'https://www.invochess.vercel.app';
+	const siteUrlBase: string = 'https://invochess.vercel.app';
 
 	$: currentPath = $page.url.pathname;
 
