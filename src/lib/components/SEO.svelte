@@ -4,7 +4,7 @@
 	export let title: string = 'Invochess';
 	export let description: string =
 		"Unlock your chess potential with Invochess. Get AI-powered insights by combining Stockfish's analytical strength with Gemini's explanatory power to deepen your understanding and win more games.";
-	export let image: string = '/invochess-og.png';
+	export let image: string = '/invochess-opengraph.png';
 	export let siteName: string = 'Invochess';
 	export let author: string | null = 'Fitzsixto';
 	export let keywords: string =
