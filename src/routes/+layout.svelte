@@ -2,6 +2,7 @@
 	import '../app.css';
 	import Footer from '$lib/components/footer.svelte';
 	import Header from '$lib/components/header.svelte';
+	import SEO from '$lib/components/SEO.svelte';
 	import { onMount } from 'svelte';
 	import { supabase } from '$lib/supabaseClient';
 	import { user } from '$lib/store';
@@ -25,6 +26,8 @@
 		};
 	});
 </script>
+
+<SEO />
 
 <div class="flex flex-col min-h-screen">
 	<Header/>
